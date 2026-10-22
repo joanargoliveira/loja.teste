@@ -112,7 +112,6 @@ function atualizarCarrinho() {
     carrinho.forEach((item, index) => {
         subtotal += item.preco;
         
-        // Descobre qual o porte configurado para o produto (ou assume o padrão se faltar)
         let custoPortesArtigo = 3.45;
         if (item.portes !== undefined) {
             custoPortesArtigo = item.portes;
@@ -159,7 +158,6 @@ function atualizarCarrinho() {
 
     let totalFinal = subtotal + valorPortesFinal;
 
-    // Atualiza os textos no ecrã com segurança para evitar erros
     const subtotalEl = document.getElementById('preco-subtotal');
     const totalEl = document.getElementById('preco-total');
     
@@ -205,6 +203,18 @@ function processarPagamento(event) {
     desenharLoja(dadosDaLoja.produtos);
     document.getElementById('janela-detalhes').style.display = 'none';
     document.getElementById('form-checkout').reset();
+}
+
+// 7. FUNÇÕES PARA OS TERMOS DE UTILIZAÇÃO (NOVO)
+function abrirTermos(event) {
+    event.preventDefault();
+    document.getElementById('janela-termos').style.display = 'flex';
+}
+
+function fecharTermosOutside(event) {
+    if (event.target.id === 'janela-termos') {
+        document.getElementById('janela-termos').style.display = 'none';
+    }
 }
 
 // Inicializar a aplicação

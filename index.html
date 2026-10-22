@@ -15,12 +15,12 @@
         </div>
     </header>
 
-        <nav id="filtros">
+    <nav id="filtros">
         <button onclick="filtrarProdutos('Todos')">Todos</button>
         <button onclick="filtrarProdutos('Quadros')">Quadros</button>
         <button onclick="filtrarProdutos('Porta-chaves')">Porta-chaves</button>
         <button onclick="filtrarProdutos('Latas Monstro')">Latas Monstro</button>
-        <button onclick="filtrarProdutos('Brincos')">Brincos</button> <!-- O TEU NOVO BOTÃO AQUI -->
+        <button onclick="filtrarProdutos('Brincos')">Brincos</button>
     </nav>
 
     <main class="content-container">
@@ -55,27 +55,28 @@
         </aside>
     </main>
 
-    <!-- SECÇÃO DO INSTAGRAM (NOVO) -->
     <footer>
         <div class="instagram-section">
             <h2>Siga-nos no Instagram</h2>
-            <!-- Altera o @oateliedajo para o teu @ real do Instagram -->
             <p class="insta-handle">@jo.neji</p>
             
-            <!-- Grelha visual a simular fotos do Instagram (vão buscar as fotos dos teus próprios produtos para ficar bonito) -->
             <div class="instagram-feed">
                 <div class="insta-post"><img src="imagens/quadrora.jpeg" alt="Instagram Post" onerror="this.style.opacity='0.5'"></div>
                 <div class="insta-post"><img src="imagens/spiderman.jpeg" alt="Instagram Post" onerror="this.style.opacity='0.5'"></div>
                 <div class="insta-post"><img src="imagens/quadroabelhao.jpeg" alt="Instagram Post" onerror="this.style.opacity='0.5'"></div>
-                <div class="insta-post"><img src="imagens/portachavesapresentação.jpeg" alt="Instagram Post" onerror="this.style.opacity='0.5'"></div>
+                <div class="insta-post"><img src="imagens/lata1.jpeg" alt="Instagram Post" onerror="this.style.opacity='0.5'"></div>
             </div>
 
-            <!-- Altera o link abaixo para o link real do teu perfil do Instagram -->
             <a href="https://instagram.com/jo.neji/" target="_blank" class="btn-instagram">Visitar Perfil</a>
         </div>
-        <p class="copyright">&copy; 2026 O Ateliê da Jo. Todos os direitos reservados.</p>
+        <!-- LINK DOS TERMOS ADICIONADO NO RODAPÉ -->
+        <p class="copyright">
+            &copy; 2026 O Ateliê da Jo. Todos os direitos reservados. | 
+            <a href="#" onclick="abrirTermos(event)" style="color: var(--cor-principal); text-decoration: underline; font-weight: bold;">Termos de Utilização</a>
+        </p>
     </footer>
 
+    <!-- POP-UP DOS PRODUTOS -->
     <div id="janela-detalhes" class="modal" onclick="fecharDetalhes(event)">
         <div class="modal-conteudo">
             <span class="botao-fechar" onclick="document.getElementById('janela-detalhes').style.display='none'">&times;</span>
@@ -91,6 +92,20 @@
                     <p id="modal-preco" class="preco"></p>
                     <button id="modal-btn-adicionar">Adicionar ao Carrinho</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POP-UP EXCLUSIVO PARA OS TERMOS DE UTILIZAÇÃO (NOVO) -->
+    <div id="janela-termos" class="modal" onclick="fecharTermosOutside(event)">
+        <div class="modal-conteudo" style="max-width: 650px; max-height: 80vh; overflow-y: auto;">
+            <span class="botao-fechar" onclick="document.getElementById('janela-termos').style.display='none'">&times;</span>
+            <h2 style="margin-bottom: 20px; color: var(--cor-texto);">Termos de Utilização e Segurança</h2>
+            <div style="text-align: left; font-size: 0.95rem; line-height: 1.6; color: #5a524e;">
+                <p><strong>1. Peças Únicas:</strong> Os quadros originais são peças exclusivas feitas à mão. Uma vez vendidos, o stock esgota-se automaticamente.</p><br>
+                <p><strong>2. Envios e Portes:</strong> Os envios são feitos via CTT Registado. Os portes são calculados por tamanho/peso. Compras acima do limite têm portes grátis.</p><br>
+                <p><strong>3. Artigos Danificados no Envio:</strong> Todos os nossos quadros de valor elevado são enviados com <strong>Seguro de Valor Declarado</strong> pelos CTT. O cliente deve inspecionar a encomenda no momento da entrega. Caso detete danos provocados pelo transporte, deve contactar-nos nas primeiras 24/48 horas com fotos do estrago para procedermos ao reembolso total e ativação do seguro.</p><br>
+                <p><strong>4. Devoluções:</strong> Dispõe de 14 dias para devolver artigos normais sem marcas de uso. Peças feitas por encomenda personalizada não têm direito a devolução.</p>
             </div>
         </div>
     </div>
