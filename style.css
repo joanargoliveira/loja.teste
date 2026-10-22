@@ -1,0 +1,442 @@
+:root {
+    --cor-fundo: #faf7f2;       
+    --cor-principal: #d37a5b;   
+    --cor-texto: #3e3835;       
+    --cor-card: #ffffff;        
+    --cor-borda: #e6dfd5;       
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    padding-bottom: 40px;
+}
+
+header {
+    background-color: var(--cor-card);
+    border-bottom: 1px solid var(--cor-borda);
+    padding: 20px;
+    text-align: center;
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#logo-loja {
+    max-height: 150px;
+    width: auto;
+    object-fit: contain;
+}
+
+#titulo-loja {
+    font-size: 2rem;
+    color: var(--cor-texto);
+    font-weight: 600;
+}
+
+#filtros {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+#filtros button {
+    background-color: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+#filtros button:hover {
+    background-color: var(--cor-principal);
+    color: white;
+    border-color: var(--cor-principal);
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.grelha {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    align-content: start;
+}
+
+.produto-card {
+    background-color: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+    cursor: pointer;
+}
+
+.wrapper-imagem {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: var(--cor-fundo);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.produto-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.imagem-fallback {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #8c827d;
+    background-color: #e6dfd5;
+}
+
+.produto-card h3 {
+    font-size: 1.1rem;
+    margin: 12px 0 4px 0;
+}
+
+.categoria-tag {
+    font-size: 0.8rem;
+    color: #8c827d;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.aviso-stock {
+    font-size: 0.85rem;
+    color: #8c827d;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.preco {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--cor-principal);
+    margin-bottom: 12px;
+}
+
+.produto-card button {
+    background-color: var(--cor-principal);
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+}
+
+.produto-card button:hover {
+    background-color: #be6547;
+}
+
+#carrinho {
+    background-color: var(--cor-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 20px;
+    height: fit-content;
+}
+
+#carrinho h2 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--cor-fundo);
+    padding-bottom: 10px;
+}
+
+.item-no-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--cor-fundo);
+    font-size: 0.95rem;
+}
+
+.item-no-carrinho button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.linhas-total {
+    margin: 20px 0;
+    text-align: right;
+    border-top: 1px solid var(--cor-borda);
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.linhas-total p {
+    font-size: 0.9rem;
+    color: #5a524e;
+}
+
+.linhas-total h3 {
+    color: var(--cor-principal);
+    font-size: 1.3rem;
+    margin-top: 5px;
+}
+
+#form-checkout h4 {
+    margin-bottom: 12px;
+    border-top: 1px solid var(--cor-borda);
+    padding-top: 15px;
+}
+
+#form-checkout input, 
+#form-checkout select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    background-color: var(--cor-fundo);
+}
+
+.btn-pagar {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-pagar:hover {
+    background-color: #219653;
+}
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal-conteudo {
+    background-color: var(--cor-card);
+    padding: 30px;
+    border-radius: 8px;
+    max-width: 800px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.botao-fechar {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #8c827d;
+}
+
+.modal-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+.modal-imagens {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#modal-foto-principal {
+    width: 100%;
+    max-height: 350px;
+    object-fit: contain;
+    background-color: var(--cor-fundo);
+    border-radius: 4px;
+}
+
+.miniaturas-grelha {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.miniatura {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    background-color: var(--cor-fundo);
+}
+
+.miniatura.ativa {
+    border-color: var(--cor-principal);
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modal-info h2 {
+    margin-bottom: 15px;
+}
+
+#modal-descricao {
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #5a524e;
+}
+
+#modal-btn-adicionar {
+    background-color: var(--cor-principal);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 600px) {
+    .modal-layout {
+        grid-template-columns: 1fr;
+    }
+}
+/* DESIGN DA SECÇÃO DO INSTAGRAM E RODAPÉ */
+footer {
+    background-color: var(--cor-card);
+    border-top: 1px solid var(--cor-borda);
+    margin-top: 50px;
+    padding: 40px 20px 20px 20px;
+    text-align: center;
+}
+
+.instagram-section {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+}
+
+.instagram-section h2 {
+    font-size: 1.5rem;
+    color: var(--cor-texto);
+    margin-bottom: 5px;
+}
+
+.insta-handle {
+    color: var(--cor-principal);
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.instagram-feed {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.insta-post {
+    aspect-ratio: 1 / 1;
+    background-color: var(--cor-fundo);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid var(--cor-borda);
+}
+
+.insta-post img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.insta-post:hover img {
+    transform: scale(1.05); /* Efeito dinâmico ao passar o rato */
+}
+
+.btn-instagram {
+    display: inline-block;
+    background-color: #e1306c; /* Cor clássica do Instagram */
+    color: white;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-instagram:hover {
+    background-color: #c13584;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #8c827d;
+    border-top: 1px solid var(--cor-fundo);
+    padding-top: 20px;
+}
+
+/* Ajuste para telemóveis: mostra 2 fotos por linha em vez de 4 */
+@media (max-width: 600px) {
+    .instagram-feed {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

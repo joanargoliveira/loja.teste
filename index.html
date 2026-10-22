@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Ateliê da Jo - Loja Online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <img id="logo-loja" src="imagens/logo.png" alt="Logo O Ateliê da Jo" onerror="this.style.display='none'">
+            <h1 id="titulo-loja">O Ateliê da Jo</h1>
+        </div>
+    </header>
+
+        <nav id="filtros">
+        <button onclick="filtrarProdutos('Todos')">Todos</button>
+        <button onclick="filtrarProdutos('Quadros')">Quadros</button>
+        <button onclick="filtrarProdutos('Porta-chaves')">Porta-chaves</button>
+        <button onclick="filtrarProdutos('Latas Monstro')">Latas Monstro</button>
+        <button onclick="filtrarProdutos('Brincos')">Brincos</button> <!-- O TEU NOVO BOTÃO AQUI -->
+    </nav>
+
+    <main class="content-container">
+        <section id="grelha-produtos" class="grelha"></section>
+
+        <aside id="carrinho">
+            <h2>O Meu Carrinho</h2>
+            <div id="itens-carrinho"></div>
+            
+            <div class="linhas-total">
+                <p>Subtotal: <span id="preco-subtotal">0.00</span>€</p>
+                <p id="linha-portes">Portes de Envio: <span id="preco-portes">0.00</span>€</p>
+                <h3>Total Final: <span id="preco-total">0.00</span>€</h3>
+            </div>
+            
+            <form id="form-checkout" onsubmit="processarPagamento(event)">
+                <h4>Dados de Envio e Pagamento</h4>
+                <input type="text" placeholder="Nome Completo" required>
+                <input type="email" placeholder="E-mail" required>
+                <input type="tel" placeholder="Telemóvel (para MB WAY)" required>
+                <input type="text" placeholder="Morada de Entrega" required>
+                
+                <select id="metodo-pagamento" required>
+                    <option value="">Escolha o método de pagamento</option>
+                    <option value="mbway">MB WAY</option>
+                    <option value="multibanco">Referência Multibanco</option>
+                    <option value="cartao">Cartão de Crédito</option>
+                </select>
+
+                <button type="submit" class="btn-pagar">Pagar de Forma Automática</button>
+            </form>
+        </aside>
+    </main>
+
+    <!-- SECÇÃO DO INSTAGRAM (NOVO) -->
+    <footer>
+        <div class="instagram-section">
+            <h2>Siga-nos no Instagram</h2>
+            <!-- Altera o @oateliedajo para o teu @ real do Instagram -->
+            <p class="insta-handle">@jo.neji</p>
+            
+            <!-- Grelha visual a simular fotos do Instagram (vão buscar as fotos dos teus próprios produtos para ficar bonito) -->
+            <div class="instagram-feed">
+                <div class="insta-post"><img src="imagens/quadrora.jpeg" alt="Instagram Post" onerror="this.style.opacity='0.5'"></div>
+                <div class="insta-post"><img src="imagens/spiderman.jpeg" alt="Instagram Post" onerror="this.style.opacity='0.5'"></div>
+                <div class="insta-post"><img src="imagens/quadroabelhao.jpeg" alt="Instagram Post" onerror="this.style.opacity='0.5'"></div>
+                <div class="insta-post"><img src="imagens/portachavesapresentação.jpeg" alt="Instagram Post" onerror="this.style.opacity='0.5'"></div>
+            </div>
+
+            <!-- Altera o link abaixo para o link real do teu perfil do Instagram -->
+            <a href="https://instagram.com/jo.neji/" target="_blank" class="btn-instagram">Visitar Perfil</a>
+        </div>
+        <p class="copyright">&copy; 2026 O Ateliê da Jo. Todos os direitos reservados.</p>
+    </footer>
+
+    <div id="janela-detalhes" class="modal" onclick="fecharDetalhes(event)">
+        <div class="modal-conteudo">
+            <span class="botao-fechar" onclick="document.getElementById('janela-detalhes').style.display='none'">&times;</span>
+            <div class="modal-layout">
+                <div class="modal-imagens">
+                    <img id="modal-foto-principal" src="" alt="Foto Principal">
+                    <div id="modal-miniaturas" class="miniaturas-grelha"></div>
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-nome"></h2>
+                    <p id="modal-descricao"></p>
+                    <p id="modal-stock" class="aviso-stock"></p>
+                    <p id="modal-preco" class="preco"></p>
+                    <button id="modal-btn-adicionar">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="produtos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
